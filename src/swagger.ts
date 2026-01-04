@@ -7,13 +7,17 @@ const swaggerOptions: swaggerJsDoc.Options = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'Login Stack API',
+      title: 'Demo Express Stack API',
       version: '1.0.0',
-      description: 'API documentation for our login stack test application',
+      description: 'API documentation for our demo express stack test application',
     },
     servers: [
       {
-        url: 'http://localhost:5000',
+        url:
+          process.env.NODE_ENV === 'production'
+            ? 'https://demo-app-express-ts.onrender.com'
+            : 'http://localhost:5000',
+        description: 'Demo Express Stack API server',
       },
     ],
     components: {
